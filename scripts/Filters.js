@@ -1,18 +1,16 @@
 moment.locale('es');
-function Filters ({ setStarDate, setEndDate, startDate, endDate}) {
+function Filters ({startDate, endDate}) {
 
     return (
       <nav className="navbar is-container">
         <div className="container is-widescreen">
           <div className="notification">
             <div className="field">
-            <h3 className="subtitle">
-            <span>desde el <b>{startDate}</b> hasta el <b>{endDate}</b></span>
-            </h3>
             <input className="input" type="date" 
               onChange={(event) => {
                 console.log(event.target.value);
-              setStarDate(moment(event.target.value, "YY/MMMM/DD"))
+              startDate(moment(event.target.value, "YY/MMMM/DD"))
+              console.log("show date", startDate);
                 } 
               }/>
             <span className="icon is-small is-left">
@@ -23,7 +21,8 @@ function Filters ({ setStarDate, setEndDate, startDate, endDate}) {
             <input className="input" type="date" 
             onChange={(event) => {
               console.log(event.target.value);
-            setEndDate(moment(event.target.value, "YY/MMMM/DD"))
+            endDate(moment(event.target.value, "YY/MMMM/DD"))
+            console.log("show date", Date);
               } 
             }/>
             <span className="icon is-small is-left">
@@ -32,8 +31,9 @@ function Filters ({ setStarDate, setEndDate, startDate, endDate}) {
             </div>
             <div className="field">
               <div className="control has-icons-left">
-                <div className="select" style={{ width: '100%' }}>
-                  <select style={{ width: '100%' }}>
+                <div className="select" >
+                  <select>
+                   
                   </select>
                 </div>
                   <div className="icon is-small is-left">

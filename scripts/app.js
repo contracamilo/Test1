@@ -2,21 +2,20 @@ moment.locale('es');
 class App extends React.Component {
    initialState = {
     filter: {
-      startDate: moment().format("YY/MMMM/DD"),
-      endDate: moment().add(1,'days').format("YY/MMMM/DD"),
+      startDate: moment().format("DD/MMMM/YY"),
+      endDate: moment().add(1,'days').format("DD/MMMM/YY"),
       country:"",
-      prices:""
+      prices:"",
+      rooms:""
     },
     hotelesData: hotelsData
    }
   constructor(props){
   super(props);
   this.state = this.initialState;
-  // this.setStartDate = this.setStartDate.bind(this);
-  // this.setEndDate = this.setEndDate.bind(this);
+
 }
  setStarDate(date){
-  console.log(date);
   this.setState((state) => ({
     ...state,
     startDate: date
@@ -31,11 +30,12 @@ class App extends React.Component {
 }
 
   render() {
-    // console.log(this.state);
-    // console.log(this.state.hotelesData);
     return (
       <div>
-        <Header />
+        <Header  
+          startDate={this.state.filter.startDate}
+          endDate={this.state.filter.endDate} 
+          />
         <Filters 
           setStarDate={() => this.setStarDate()}
           setEndDate={() => this.setEndDate()}
