@@ -1,7 +1,7 @@
 function Hotel(props) {
     // console.log(props)
     return(
-        <div className="card column is-one-third-desktop is-half-tablet" >
+        <div key={props.key} className="card column is-one-third-desktop is-half-tablet" >
         <div className="card-image">
             <figure className="image is-4by3">
                 <img src={props.photo} alt={props.slug} />

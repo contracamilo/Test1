@@ -4,8 +4,8 @@ function Hoteles(props) {
   return (
     <div className="columns is-wrap">
       {props.hoteles.map((hotel, i) =>
-        <Hotel
-        {...hotel}
+        <Hotel key={i}
+          {...hotel}
         />
       )
       }
